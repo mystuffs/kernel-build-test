@@ -28,6 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
+          sudo apt install -y git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison
           git clone --depth 1 https://github.com/torvalds/linux.git
           cd linux && make randconfig && make -j$(lscpu | grep -m1 "CPU(s)" | sed "s/CPU(s)://;s/^ *//g")
           
